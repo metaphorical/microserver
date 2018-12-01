@@ -1,0 +1,6 @@
+-sname microserver
+
+-setcookie microserver_cookie
+
++K true
++A30
