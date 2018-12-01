@@ -4,6 +4,14 @@ In pursuit for lightest microservice I am doing experiments in few languages and
 
 At start notes here will be my own quick drops for myself... I hope to extend as myreasearch progresses
 
+## Plan
+
+* Build few microservices
+* Make it weird but super fast, or something
+* K8s
+* Delivery
+* Loadtest
+
 ## Erlang
 
 It will be super fast.
