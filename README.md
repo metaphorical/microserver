@@ -31,5 +31,7 @@ Just writing bare server in erlang - http server.
 
 Taking the idea (and a tool) from Garrett Smith, following what he did in his talk on building web server in erlang, logical extension is doing RnD on regular web microservice... Something that gets hit a lot?
 
+Turned out I have put a pause on this one due to bad documentation... I can rather write my own routing and go with it then use what is there. At least it looks like it at this moment.
+
 
 ### Cowboy

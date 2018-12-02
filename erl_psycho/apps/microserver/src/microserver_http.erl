@@ -8,4 +8,7 @@ start_link() ->
 
 app(Env) ->
     Body = io_lib:format("~p", [Env]),
-    {{200, "OK"}, [], Body}.
+    ok(Body).
+
+ok(Body) ->
+        {{200, "OK"}, [{"Content-Type", "text/plain"}], Body}.
