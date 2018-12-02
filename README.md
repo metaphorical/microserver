@@ -38,7 +38,7 @@ Turned out I have put a pause on this one due to bad documentation... I can rath
 
 ### Cowboy
 
-(Cowboy framework)[https://github.com/ninenines/cowboy]
+[Cowboy framework](https://github.com/ninenines/cowboy)
 
 To run got to **erl_cowboy** directory and run:
 
