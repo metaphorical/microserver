@@ -8,8 +8,10 @@ init(Req0=#{method := <<"GET">>}, State) ->
     Id = cowboy_req:binding(id, Req0),
     Req = cowboy_req:reply(200, #{
         <<"content-type">> => <<"text/plain">>
-    }, Id, Req0),
+    }, <<"ID is - ", Id/binary, "\n">> , Req0),
     {ok, Req, State};
+
+
 % Anything not GET goes here
 init(Req0, State) ->
     Req = cowboy_req:reply(405, #{
