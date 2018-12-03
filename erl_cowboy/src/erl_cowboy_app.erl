@@ -6,7 +6,12 @@
 
 start(_Type, _Args) ->
     Dispatch = cowboy_router:compile([
-        {'_', [{"/", root_handler, []}]}
+        %% {HostMatch, list({PathMatch, Handler, InitialState})}
+        {'_', [
+                {"/:id", id_handler, []},
+                {"/", root_handler, []}
+              ]
+        }
     ]),
     {ok, _} = cowboy:start_clear(my_http_listener,
         [{port, 8080}],

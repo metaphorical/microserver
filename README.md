@@ -6,7 +6,7 @@ In pursuit for lightest microservice I am doing experiments in few languages and
 
 It is mostly coming from my idea that I, few years ago, called "project 6", which was the idea around building web service in 6 different technologies (and no, nodejs and io, and js and ts do not count as different). IDK where number 6 came from... I had no idea which technologies I wanted to build it in. But now I got this list:
 
-* NodeJS
+* NodeJS (hapi or koa)
 * Python (flask or plain)
 * Erlang (Cowboy + bare)
 * Elixir (Phoenix + pure)
