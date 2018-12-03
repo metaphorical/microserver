@@ -7,8 +7,8 @@
 init(Req0=#{method := <<"GET">>}, State) ->
     Id = cowboy_req:binding(id, Req0),
     Req = cowboy_req:reply(200, #{
-        <<"content-type">> => <<"text/plain">>
-    }, <<"ID is - ", Id/binary, "\n">> , Req0),
+        <<"content-type">> => <<"application/json">>
+    }, <<"{\"id\": \"", Id/binary, "\"}">> , Req0),
     {ok, Req, State};
 
 
