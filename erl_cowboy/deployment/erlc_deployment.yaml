@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microserver-deployment
+  labels:
+    app: microserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice
+  template:
+    metadata:
+      labels:
+        app: microserver
+    spec:
+      containers:
+      - name: erlang
+        image: erlang:latest
+        ports:
+        - containerPort: 80
