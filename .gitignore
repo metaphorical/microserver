@@ -1,2 +1,5 @@
 _rel
 */**/*.beam
+
+.erlang.mk
+ebin
