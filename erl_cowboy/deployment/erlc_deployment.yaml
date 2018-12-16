@@ -15,7 +15,8 @@ spec:
         app: microserver
     spec:
       containers:
-      - name: erlang
-        image: erlang:latest
+      - name: erlc
+        image: erlc
+        imagePullPolicy: Never
         ports:
-        - containerPort: 80
+        - containerPort: 8080

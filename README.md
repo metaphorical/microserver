@@ -56,3 +56,21 @@ To run got to **erl_cowboy** directory and run:
 ```
 make run
 ```
+
+## Development notes
+
+### Minikube images
+
+If you are running services in k8s and want to test setup locally using **minikube**, you probably would not like to have ot uploade everything you build to your docker registry.
+
+Ideally you would avoid all the fuss and just deliver image to minikube.
+
+This can be done by building images directly into minikube cluster, by executing:
+
+```
+eval $(minikube docker-env)
+```
+
+Afret executing this your docker context is minikube environment. Now you can build the image under whatever tag/name you want and reference it in your k8s manifest.
+
+TA-DAAAAH
