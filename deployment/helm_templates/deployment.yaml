@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: { .Release.Name }
+  labels:
+    app: { .Release.Name }
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: { .Release.Name }
+  template:
+    metadata:
+      labels:
+        app: { .Release.Name }
+    spec:
+      containers:
+      - name: erlc
+        image: { .Values.image }
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+            httpHeaders:
+            - name: X-Health
+              value: Awesome
+          initialDelaySeconds: 30
+          periodSeconds: 3
+      imagePullSecrets:
+      - name: { .Values.secret }
