@@ -8,6 +8,7 @@ start(_Type, _Args) ->
     Dispatch = cowboy_router:compile([
         %% {HostMatch, list({PathMatch, Handler, InitialState})}
         {'_', [
+                {"/healthy", health_handler, []},
                 {"/:id", id_handler, []},
                 {"/", root_handler, []}
               ]

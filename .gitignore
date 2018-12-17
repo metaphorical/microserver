@@ -1,5 +1,7 @@
+# Erlang
 _rel
 */**/*.beam
 
 .erlang.mk
 ebin
+deps

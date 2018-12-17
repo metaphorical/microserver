@@ -16,7 +16,17 @@ spec:
     spec:
       containers:
       - name: erlc
-        image: erlc
-        imagePullPolicy: Never
+        image: 487533102028.dkr.ecr.us-east-1.amazonaws.com/erlc
         ports:
         - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+            httpHeaders:
+            - name: X-Health
+              value: Awesome
+          initialDelaySeconds: 3
+          periodSeconds: 3
+      imagePullSecrets:
+      - name: awsecr-cred

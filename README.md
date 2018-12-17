@@ -59,18 +59,35 @@ make run
 
 ## Development notes
 
-### Minikube images
+### Minikube setup
 
-If you are running services in k8s and want to test setup locally using **minikube**, you probably would not like to have ot uploade everything you build to your docker registry.
+To setup k8s locally you will ideally use [**minikube**](https://kubernetes.io/docs/setup/minikube/).
 
-Ideally you would avoid all the fuss and just deliver image to minikube.
+#### Container registry mess
 
-This can be done by building images directly into minikube cluster, by executing:
+You need to build your docker image and push it to container registry in order for deployment to work as it would out there.
+
+> Can also be used for custom/non cloud kubernetes deployments (if those still exit somewhere at the time of reading)
+
+Easiest way to set local test is using either docker container registry, aws ecr or google container registry. 
+
+There are tutorials on the internet to setup local container registry, but then you need to hack around certificates etc so... swallow some upload time or find mentioned tuts.
+
+To use one of these container registries, you can simply use minikube addon called **registry-creds**. 
+
+> For non mini kube install you can go to [registry creds]() repo and clone it, heads up tho - it is not too frequently maintained and docs are terrible.
 
 ```
-eval $(minikube docker-env)
+$ minikube addons configure registry-creds
+$ minikube addons enable registry-creds
 ```
 
-Afret executing this your docker context is minikube environment. Now you can build the image under whatever tag/name you want and reference it in your k8s manifest.
+> Make sure that, if you are setting it for AWS ECR, and you do not have role arn you want to use (you usually wont have and it is optional), you set it as something random as "changeme" or smt... It requires value, if you just press enter (since it is optional) deployment of creds pod will fail and make your life miserable.
 
-TA-DAAAAH
+In case of AWS ECR, that will let you pull from your repo directly setting url as container image and adding pull secret named **awsecr-cred**:     
+```
+imagePullSecrets:
+      - name: awsecr-cred
+```
+
+Refer to one of [deployment manifests](erl_cowboy/deployment/erlc_deployment.yaml)

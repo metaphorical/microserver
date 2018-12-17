@@ -35,8 +35,11 @@ To delete deployment
 kubectl delete -f deployment/erlc_deployment.yaml -n microserver
 ```
 
+> without namespace it would go to default, which would not be a problem for it to run... depending what you want to do.
+
 
 ## API
 
-/ - root
-/:id - returning :id
+- / - root
+- /healthy - returning header **X-Health:Awsome** - used for liveness http get probe
+- /:id - returning :id
