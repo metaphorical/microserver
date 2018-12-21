@@ -6,3 +6,6 @@ tillerVersion: '>=2.10.0'
 keywords:
   - microservices
   - kubernetes
+maintainers:
+  - name: Rastko
+    email: rastko.vukasinovic@gmail.com

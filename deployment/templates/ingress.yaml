@@ -10,4 +10,4 @@ spec:
           - path: /
             backend:
               serviceName: "{{ .Release.Name }}"
-              servicePort: 3000
+              servicePort: 8080
