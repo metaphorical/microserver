@@ -5,8 +5,12 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  backend:
+    serviceName: default-microserver-service
+    servicePort: 80
   rules:
-  - http:
+  - host: microserver.erlang
+    http:
       paths:
       - path: /
         backend:

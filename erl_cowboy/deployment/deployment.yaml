@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: erlc
-        image: 487533102028.dkr.ecr.us-east-1.amazonaws.com/erlc
+        image: localhost:5000/microserver/erlang:0.0.1
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -26,7 +26,5 @@ spec:
             httpHeaders:
             - name: X-Health
               value: Awesome
-          initialDelaySeconds: 30
+          initialDelaySeconds: 15
           periodSeconds: 3
-      imagePullSecrets:
-      - name: awsecr-cred
