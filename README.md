@@ -13,7 +13,9 @@ It is mostly coming from my idea that I, few years ago, called "project 6", whic
 * golang
 * c (KORE?)
 
-At start notes here will be my own quick drops for myself... I hope to extend as myreasearch progresses
+At start notes here will be my own quick drops for myself... I hope to extend as myreasearch progresses.
+
+> **Tagging:** By the name of every implementation you will find tag local/full which will tell you if the particular approach is done just locally as part of research (and then probably dropped) or it is fully containerized and prepared for deployment in k8s.
 
 ## Plan
 
@@ -29,11 +31,11 @@ It will be super fast.
 
 
 
-### Basic
+### Basic [local]
 
 Just writing bare server in erlang - http server.
 
-### Psycho
+### Psycho [local]
 
 This counts as a bare solution since it is based of psycho server that was built by Garret Smith for his own usage and presented in one of his talks. Taking the idea (and a tool) from Garrett S., following what he did in his talk on building web server in erlang, logical extension is doing RnD on regular web microservice...
 
@@ -42,32 +44,69 @@ Turned out I have put a pause on this one due to bad documentation... I can rath
 Rebar3 is tool of choice here so in most of cases:
 
 ```
-rebar3 compile
-rebar3 shell
+$ rebar3 compile
+$ rebar3 shell
 ```
 
 
-### Cowboy
+### Cowboy [full]
 
 [Cowboy framework](https://github.com/ninenines/cowboy)
 
 To run got to **erl_cowboy** directory and run:
 
 ```
-make run
+$ make run
 ```
 
-## Development notes
+## Development environment notes
+> If you want to know how to run it, every sevice has its own notes inside its directory, these are genera notes that will help you understand environment setup little more in depth.
 
 ### Minikube setup
 
 To setup k8s locally you will ideally use [**minikube**](https://kubernetes.io/docs/setup/minikube/).
 
-#### Container registry mess
+This docuemntation assuems that you understand basic k8s stuff.
+
+#### Rough reality of container registry usage
 
 You need to build your docker image and push it to container registry in order for deployment to work as it would out there.
 
-> Can also be used for custom/non cloud kubernetes deployments (if those still exit somewhere at the time of reading)
+##### Local, easier option
+> But missing setup/usage of real container registry so you would lack that wxpwriance when you move forward.
+
+**Here is it step by step:**
+
+* Get your docker context into your minikube cluster
+
+```
+$ eval $(minikube docker-env)
+```
+
+> you can later revert this by using
+> 
+> ```
+> $ eval $(docker-machine env -u)
+> ```
+
+
+* While in cluster context setup local docker registry
+
+```
+$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+```
+
+This should setup internal docker registry on localhost:5000 so you can build and prepare images with (<> marks where your values go):
+
+```
+$ docker build . -t <your_tag>
+$ docker tag <your_tag> localhost:5000/<your_tag>:<version>
+```
+
+* At this point you can **use localhost:5000/<your_tag>:<version>** as image in your deployment and that is it.
+
+##### Proper, with real container registry
+> Can also be used for custom/non-cloud kubernetes deployments (if those still exit somewhere at the time of reading).
 
 Easiest way to set local test is using either docker container registry, aws ecr or google container registry.
 
@@ -75,7 +114,7 @@ There are tutorials on the internet to setup local container registry, but then 
 
 To use one of these container registries, you can simply use minikube addon called **registry-creds**.
 
-> For non mini kube install you can go to [registry creds]() repo and clone it, heads up tho - it is not too frequently maintained and docs are terrible.
+> For non mini kube install you can go to [registry creds](https://github.com/upmc-enterprises/registry-creds) repo and clone it, heads up tho - it is not too frequently maintained and docs are terrible.
 
 ```
 $ minikube addons configure registry-creds
@@ -90,7 +129,26 @@ imagePullSecrets:
       - name: awsecr-cred
 ```
 
-Refer to one of [deployment manifests](erl_cowboy/deployment/erlc_deployment.yaml)
+Refer to one of [deployment manifests](erl_cowboy/deployment/deployment.yaml)
+
+#### Ingress 
+
+```
+$ minikube addons enable ingress
+```
+
+Make sure that you setup ingress based on your local hosts. For me, for example, it means adding following lines to /etc/hosts:
+
+```
+[minikube ip] microserver.erlang microserver.elixir microserver.c
+```
+Where **"[minikube ip]"** should be replaced with actual minikube ip.
+
+Here is shortcut to do it:
+
+```
+$ echo "$(minikube ip) microserver.erlang" | sudo tee -a /etc/hosts
+```
 
 ### Helm
 
