@@ -2,14 +2,14 @@
 
 ## Ideas
 
-In pursuit for lightest microservice I am doing experiments in few languages and additionally few approaches within them.
+In pursuit for lightest, fastest, most scalable and cost effective technology to develop microservices I am doing experiments in few languages and additionally few approaches within them.
 
 It is mostly coming from my idea that I, few years ago, called "project 6", which was the idea around building web service in 6 different technologies (and no, nodejs and io, and js and ts do not count as different). IDK where number 6 came from... I had no idea which technologies I wanted to build it in. But now I got this list:
 
 * NodeJS (hapi or koa)
 * Python (flask or plain)
-* Erlang (Cowboy + bare)
-* Elixir (Phoenix + pure)
+* Erlang (Cowboy probably)
+* Elixir (Phoenix and no framework)
 * golang
 * c (KORE?)
 
@@ -129,7 +129,7 @@ imagePullSecrets:
       - name: awsecr-cred
 ```
 
-Refer to one of [deployment manifests](erl_cowboy/deployment/deployment.yaml)
+Refer to one of [deployment manifests](erlang/cowboy/deployment/deployment.yaml)
 
 #### Ingress 
 
