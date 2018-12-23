@@ -1,0 +1,32 @@
+{
+  "name": "koa_microserver",
+  "version": "0.0.1",
+  "description": "koa verison of microserver experiment ",
+  "main": "server.js",
+  "scripts": {
+    "start-dev": "./node_modules/.bin/nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metaphorical/microserver.git"
+  },
+  "keywords": [
+    "koa",
+    "ndoejs",
+    "javascript",
+    "microservice"
+  ],
+  "author": "Rastko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metaphorical/microserver/issues"
+  },
+  "homepage": "https://github.com/metaphorical/microserver#readme",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.18.9"
+  }
+}
