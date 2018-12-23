@@ -20,22 +20,29 @@ Cleanup docker to be able to rebuild and rerun:
 docker stop erlc | docker rm erlc
 ```
 
-## kubernetes
+## Kubernetes
 
-### Deployment
+> Deployments/values are set up for local deployment that expects local host **microserver.erlang** to be set
+>
+> ```
+> echo "$(minikube ip) microserver.erlang" | sudo tee -a /etc/hosts
+> ```
+>
+> If yoook at Root readme for how to set up docker registry and everythong needed in local, expected image name is **microserver/erlang** (take a look into files, anyways)
 
-> Please note that deployment is tweaked a bit for local testing, if there are not two clearly marked deployment manifests, it is for local.
 
-Assuming you got "microserver" namespace set
+### Creating full deployment
+
 ```
-kubectl create -f deployment/erlc_deployment.yaml -n microserver
-```
-To delete deployment
-```
-kubectl delete -f deployment/erlc_deployment.yaml -n microserver
+kubectl create -f deployment/service.yaml && kubectl create -f deployment/deployment.yaml && kubectl create -f deployment/ingress.yaml
 ```
 
-> without namespace it would go to default, which would not be a problem for it to run... depending what you want to do.
+### Deleting deployment
+
+```
+kubectl delete -f deployment/service.yaml && kubectl delete -f deployment/deployment.yaml && kubectl delete -f deployment/ingress.yaml
+```
+
 
 
 ## API
