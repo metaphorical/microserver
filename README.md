@@ -1,6 +1,7 @@
-# Microserver
-
 ![project microserver](./misc/logo.png "Microserver") 
+
+# Microserver - the learning project
+
 
 ## Ideas
 
