@@ -1,5 +1,7 @@
 # Microserver
 
+![project microserver](./misc/logo.png "Microserver") 
+
 ## Ideas
 
 In pursuit for lightest, fastest, most scalable and cost effective technology to develop microservices I am doing experiments in few languages and additionally few approaches within them.
