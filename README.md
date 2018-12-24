@@ -39,11 +39,14 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 * [Psycho](erlang/psycho/readme.md)
 * [Cowboy](erlang/cowboy/readme.md)
 
-## Erlang
+## NodeJS
 
-* [hapi](erlang/hapi/readme.md)
-* [koa](erlang/koa/readme.md)
+* [hapi](nodejs/hapi/readme.md)
+* [koa](nodejs/koa/readme.md)
 
+## C
+
+* [Kore](c/kore/readme.md)
 
 
 
