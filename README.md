@@ -20,7 +20,7 @@ It is mostly coming from my idea that I, few years ago, called "project 6", whic
   * Psycho[local]
   * Cowboy[full] 
 * Elixir (Phoenix and no framework)
-* golang
+* golang[wip]
 * c
   * Kore[wip]
 
@@ -48,6 +48,8 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 ## C
 
 * [Kore](c/kore/readme.md)
+
+## [Go](golang/readme.md)
 
 
 
