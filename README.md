@@ -35,14 +35,14 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 
 ## Erlang
 
-* [Bare - minimal Erlang web server](erlang/basic)
-* [Psycho](erlang/psycho)
-* [Cowboy](erlang/cowboy)
+* [Bare - minimal Erlang web server](erlang/basic/readme.md)
+* [Psycho](erlang/psycho/readme.md)
+* [Cowboy](erlang/cowboy/readme.md)
 
 ## Erlang
 
-* [hapi](erlang/hapi)
-* [koa](erlang/koa)
+* [hapi](erlang/hapi/readme.md)
+* [koa](erlang/koa/readme.md)
 
 
 
