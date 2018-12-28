@@ -5,7 +5,8 @@
 
 
 init(Req0=#{method := <<"GET">>}, State) ->
-    http_request:get(self(), "bgg-json.azurewebsites.net", 443, "/hot"),
+    Id = cowboy_req:binding(id, Req0),
+    bgg_request(Id),
     receive
         {response, Result} ->
             Req = cowboy_req:reply(200, #{
@@ -20,3 +21,9 @@ init(Req0, State) ->
     }, Req0),
     {cowboy_rest, Req, State}.
 
+
+
+bgg_request(<<"hot">>) ->
+        http_request:get(self(), "bgg-json.azurewebsites.net", 443, "/hot");
+bgg_request(_) ->
+        http_request:get(self(), "dummy").

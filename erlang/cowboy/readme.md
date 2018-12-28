@@ -7,7 +7,7 @@
 If you have everythng brewed into your OS:
 
 ```
-make 
+make
 make run
 ```
 
@@ -54,3 +54,4 @@ kubectl delete -f deployment/service.yaml && kubectl delete -f deployment/deploy
 - / - root
 - /healthy - returning header **X-Health:Awsome** - used for liveness http get probe
 - /:id - returning :id
+- /bgg/:id - if id is "hot" it returns Hot Games list from Board game geek. For anythong else it returns dummy response (will develop further)

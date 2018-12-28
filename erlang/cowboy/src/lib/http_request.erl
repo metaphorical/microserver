@@ -1,6 +1,6 @@
 -module(http_request).
 
--export([receive_data/5, get/4]).
+-export([receive_data/5, get/4, get/2]).
 
 % ----------------------------------------------------------------
 % Receiver that handles data that is coming in form http request
@@ -56,3 +56,11 @@ get(CallerPid, Host, Port, Path) ->
             CallerPid ! {response, Result},
             gun:close(ConnPid)
     end.
+% ----------------------------------------------------------------
+% HTTP get request with dummy response
+% ----------------------------------------------------------------
+% @param CallerPid  - PID of a parent process - method that is making HTTP call
+%
+% ----------------------------------------------------------------
+get(CallerPid, _) ->
+        CallerPid ! {response, <<"\"message\": \"Dummy Call\"">>}.
