@@ -1,33 +1,29 @@
 -module(bgg_handler).
 -behavior(cowboy_handler).
 
--export([init/2, handle_request/2]).
+-export([init/2, handle_request/1]).
 
-receive_data(ConnPid, MRef, StreamRef, Result, CallerPid) ->
+receive_data(CallerPid, ConnPid, MRef, StreamRef, Result) ->
     receive
         {gun_data, ConnPid, StreamRef, nofin, Data} ->
-            receive_data(ConnPid, MRef, StreamRef, <<Result/binary, Data/binary>>, CallerPid);
+            receive_data(CallerPid, ConnPid, MRef, StreamRef, <<Result/binary, Data/binary>>);
         {gun_data, ConnPid, StreamRef, fin, Data} ->
             CallerPid ! {data, <<Result/binary, Data/binary>>};
         {'DOWN', MRef, process, ConnPid, Reason} ->
             error_logger:error_msg("Oops!"),
             exit(Reason)
-    after 1000 ->
+    after 10000 ->
         exit(timeout)
-    end,
-    Result.
+    end.
 
-handle_request(<<"bgg">>, _) ->
-    <<"{\"message\": \"Welcome to bgg controller\"}">>;
-
-handle_request(_, CallerPid) ->
+handle_request(CallerPid) ->
     {ok, ConnPid} = gun:open("bgg-json.azurewebsites.net", 443),
 
     MRef = monitor(process, ConnPid),
 
     StreamRef = gun:get(ConnPid, "/hot"),
 
-    receive_data(ConnPid, MRef, StreamRef, <<"">>, self()),
+    receive_data(self(), ConnPid, MRef, StreamRef, <<"">>),
     receive
         {data, Result} ->
             CallerPid ! {response, Result},
@@ -36,8 +32,7 @@ handle_request(_, CallerPid) ->
 
 
 init(Req0=#{method := <<"GET">>}, State) ->
-    Id = cowboy_req:binding(id, Req0),
-    handle_request(Id, self()),
+    handle_request(self()),
     receive
         {response, Result} ->
             Req = cowboy_req:reply(200, #{
