@@ -7,7 +7,8 @@
 start(_Type, _Args) ->
     application:ensure_all_started(gun),
     Dispatch = cowboy_router:compile([
-        %% {HostMatch, list({PathMatch, Handler, InitialState})}
+        % {HostMatch, list({PathMatch, Handler, InitialState})}
+        % Initial state is passed to handler as "State" param
         {'_', [
                 {"/bgg/hot", bgg_handler, #{type => hot}},
                 {"/bgg/item/:id", bgg_handler, #{type => item}},

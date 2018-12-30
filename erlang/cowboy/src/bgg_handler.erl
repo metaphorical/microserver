@@ -10,6 +10,7 @@
 
 init(Req0=#{method := <<"GET">>}, State) ->
     Id = cowboy_req:binding(id, Req0),
+    % Getting type from the route config (two routes with different configs are pointing to this handler)
     Type = maps:get(type, State),
     bgg_request(Type, Id),
     receive

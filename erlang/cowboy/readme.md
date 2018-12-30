@@ -54,4 +54,5 @@ kubectl delete -f deployment/service.yaml && kubectl delete -f deployment/deploy
 - / - root
 - /healthy - returning header **X-Health:Awsome** - used for liveness http get probe
 - /:id - returning :id
-- /bgg/:id - if id is "hot" it returns Hot Games list from Board game geek. For anythong else it returns dummy response (will develop further)
+- /bgg/item/:id - TODO: make this one load item from BGG by id
+- /bgg/hot - returns json with hottest boardgames list from bGG
