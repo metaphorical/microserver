@@ -5,3 +5,4 @@ _rel
 .erlang.mk
 ebin
 deps
+erl_crash.dump

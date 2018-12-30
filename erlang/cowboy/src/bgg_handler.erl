@@ -1,12 +1,17 @@
 -module(bgg_handler).
 -behavior(cowboy_handler).
 
--export([init/2]).
+
+-export([init/2,
+         bgg_request/2
+        ]).
+
 
 
 init(Req0=#{method := <<"GET">>}, State) ->
     Id = cowboy_req:binding(id, Req0),
-    bgg_request(Id),
+    Type = maps:get(type, State),
+    bgg_request(Type, Id),
     receive
         {response, Result} ->
             Req = cowboy_req:reply(200, #{
@@ -14,7 +19,7 @@ init(Req0=#{method := <<"GET">>}, State) ->
             }, Result , Req0),
             {cowboy_rest, Req, State}
     end;
-
+        
 init(Req0, State) ->
     Req = cowboy_req:reply(405, #{
         <<"allow">> => <<"GET">>
@@ -23,7 +28,8 @@ init(Req0, State) ->
 
 
 
-bgg_request(<<"hot">>) ->
+bgg_request(hot,_) ->
         http_request:get(self(), "bgg-json.azurewebsites.net", 443, "/hot");
-bgg_request(_) ->
-        http_request:get(self(), "dummy").
+bgg_request(item, Id) ->
+        http_request:get(self(), Id).
+
