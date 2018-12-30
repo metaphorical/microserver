@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "e1249c33-4bcb-412b-934a-92f95a2f9ab6",
+		"name": "Microserver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "healthy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/healthy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"healthy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bgg - item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/bgg/item/121",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bgg",
+						"item",
+						"121"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bgg - hot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/bgg/hot",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bgg",
+						"hot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/adsas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"adsas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
