@@ -5,19 +5,19 @@
 
 ## Ideas
 
-In pursuit for lightest, fastest, most scalable and cost effective technology to develop microservices I am doing experiments in few languages and additionally few approaches within them.
+Going beyong thought experment in pursuit for lightest, fastest, most scalable and cost effective technology to develop microservices in I am doing experiments in few languages and additionally few approaches within them. I am mostly sticking with technologies I worked with in last several years (not always necesserily for the web). Idea is to provide a learning/teaching base for deeper understanding of developing scalable and fault tolerant systems that live on the internet.
 
-It is mostly coming from my idea that I, few years ago, called "project 6", which was the idea around building web service in 6 different technologies (and no, nodejs and io, and js and ts do not count as different). IDK where number 6 came from... I had no idea which technologies I wanted to build it in. But now I got this list:
+It is mostly coming from my idea that I, few years ago, called "project 6", which was the idea around building web service in 6 different technologies (and no, nodejs and io, and js and ts do not count as different, I am also avoiding PHP due to architectural preferences). IDK where number 6 came from... I had no idea which technologies I wanted to build it in. But now I got this list:
 
-> **Tagging:** By the name of every implementation you will find tag local/full which will tell you if the particular approach is done just locally as part of research (and then probably dropped) or it is fully containerized and prepared for deployment in k8s.
+> **Tagging:** By the name of every implementation you will find tag local/full/wip which will tell you if the particular approach is done just locally as part of research (and then probably dropped) or it is fully containerized and prepared for deployment in k8s.
 
 * NodeJS 
   * hapi[wip]
   * koa[wip]
 * Python (flask or plain)
 * Erlang
-  * Bare[local]
-  * Psycho[local]
+  * Bare[local] - throwaway, left it there for historical purposes
+  * Psycho[local] - throwaway, left it there for historical purposes
   * Cowboy[full] 
 * Elixir (Phoenix and no framework)
 * golang[wip]
@@ -30,7 +30,7 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 
 * Build few microservices
 * Make it weird but super fast, or something
-* K8s + Helm (:+istio)
+* K8s + Helm (:+istio?)
 * Delivery
 * Loadtest
 
