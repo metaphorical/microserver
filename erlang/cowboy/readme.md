@@ -47,6 +47,17 @@ kubectl create -f deployment/service.yaml && kubectl create -f deployment/deploy
 kubectl delete -f deployment/service.yaml && kubectl delete -f deployment/deployment.yaml && kubectl delete -f deployment/ingress.yaml
 ```
 
+### Helm deployment
+
+Create:
+```
+helm upgrade -i --force microserver-erlang ./deployment/ --values ./erlang/cowboy/deployment/values.yaml
+```
+delete:
+```
+helm delete microserver-erlang --purge
+```
+
 
 
 ## API

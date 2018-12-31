@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { .Release.Name }
+  name: "{{ .Values.name }}-deployment"
   labels:
-    app: { .Release.Name }
+    app: "{{ .Values.name }}"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: { .Release.Name }
+      app: "{{ .Values.name }}"
   template:
     metadata:
       labels:
-        app: { .Release.Name }
+        app: "{{ .Values.name }}"
     spec:
       containers:
-      - name: erlc
-        image: { .Values.image }
+      - name: "{{ .Values.container.name }}"
+        image: "{{ .Values.container.image }}"
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.container.port }}
         livenessProbe:
           httpGet:
             path: /healthy
-            port: 8080
+            port: {{ .Values.container.port }}
             httpHeaders:
             - name: X-Health
               value: Awesome
           initialDelaySeconds: 30
-          periodSeconds: 3
-      imagePullSecrets:
-      - name: { .Values.secret }
+          periodSeconds: 1

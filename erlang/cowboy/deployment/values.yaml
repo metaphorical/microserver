@@ -1,0 +1,10 @@
+name: microserver-erlang
+host: microserver.erlang
+container: 
+  name: erlang
+  image: localhost:5000/microserver/erlang:0.0.1
+  port: 8080
+ingress:
+  name: microserver-ingress
+service:
+  name: default-microserver-service
