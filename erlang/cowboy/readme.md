@@ -61,14 +61,7 @@ kubectl delete -f deployment/service.yaml && kubectl delete -f deployment/deploy
 
 ### Helm deployment
 
-Create:
-```
-helm upgrade -i --force microserver-erlang ./deployment/ --values ./erlang/cowboy/deployment/values.yaml
-```
-delete:
-```
-helm delete microserver-erlang --purge
-```
+Helm deployment is global for whole project - find more info in root readme
 
 
 

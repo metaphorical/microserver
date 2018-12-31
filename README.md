@@ -1,4 +1,4 @@
-![project microserver](./misc/logo.png "Microserver") 
+![project microserver](./misc/logo.png "Microserver")
 
 # Microserver - the learning project
 
@@ -11,14 +11,14 @@ It is mostly coming from my idea that I, few years ago, called "project 6", whic
 
 > **Tagging:** By the name of every implementation you will find tag local/full/wip which will tell you if the particular approach is done just locally as part of research (and then probably dropped) or it is fully containerized and prepared for deployment in k8s.
 
-* NodeJS 
+* NodeJS
   * hapi[wip]
   * koa[wip]
 * Python (flask or plain)
 * Erlang
   * Bare[local] - throwaway, left it there for historical purposes
   * Psycho[local] - throwaway, left it there for historical purposes
-  * Cowboy[full] 
+  * Cowboy[full]
 * Elixir (Phoenix and no framework)
 * golang[wip]
 * c
@@ -78,7 +78,7 @@ $ eval $(minikube docker-env)
 ```
 
 > you can later revert this by using
-> 
+>
 > ```
 > $ eval $(docker-machine env -u)
 > ```
@@ -125,7 +125,7 @@ imagePullSecrets:
 
 Refer to one of [deployment manifests](erlang/cowboy/deployment/deployment.yaml)
 
-#### Ingress 
+#### Ingress
 
 ```
 $ minikube addons enable ingress
@@ -153,3 +153,24 @@ $ brew install kubernetes-helm
 $ helm init
 ```
 Valuable read: [https://docs.helm.sh/using_helm/](https://docs.helm.sh/using_helm/)
+
+## Kubernetes deployment
+
+### Project helm chart
+
+> At this moment helm chart deploys one application to kubernetes with ingress and backend it needs. There is no out-of-the-box ability to run multiple apps on same ingress - I will probably add that later.
+
+This project provides global template to run microserver apps in kubernetes in form of a helm chart.
+
+Every app needs [values file](erlang/cowboy/deployment/values.yaml) for general app deployment properties.
+
+When you setup desired deployment properties for your app you can deploy it to k8s using:
+
+Create:
+```
+helm upgrade -i --force microserver-erlang ./deployment/ --values ./erlang/cowboy/deployment/values.yaml
+```
+delete:
+```
+helm delete microserver-erlang --purge
+```
