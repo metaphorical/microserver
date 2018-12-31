@@ -24,6 +24,12 @@ Cleanup docker to be able to rebuild and rerun:
 docker stop erlc | docker rm erlc
 ```
 
+Kill **all** Erlang processes:
+
+```
+for i in `ps -ef | grep erl | awk '{print $2}'`; do echo $i; kill -9 $i; done
+```
+
 ## Kubernetes
 
 > Deployments/values are set up for local deployment that expects local host **microserver.erlang** to be set
