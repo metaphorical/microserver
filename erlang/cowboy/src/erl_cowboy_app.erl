@@ -26,4 +26,5 @@ start(_Type, _Args) ->
 
 stop(_State) ->
     application:stop(gun),
+    application:stop(cowboy),
 	ok.
