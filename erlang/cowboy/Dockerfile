@@ -19,4 +19,4 @@ EXPOSE 8080
 
 RUN make
 
-CMD ["make", "run"]
+CMD ["./_rel/erl_cowboy_release/bin/erl_cowboy_release", "foreground"]
