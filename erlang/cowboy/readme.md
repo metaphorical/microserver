@@ -18,6 +18,12 @@ docker build . -t erlc
 docker run -p 8080:8080 -it --name erlc erlc
 ```
 
+> When you were doing some building locally and now wanna build it in docker, you need to remove fe directories first.
+> To make things easier for myself and avoid having to maintain same list twice, I made small script:
+```
+./dev_pre_build.sh
+```
+
 Cleanup docker to be able to rebuild and rerun:
 
 ```
