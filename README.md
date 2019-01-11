@@ -15,14 +15,10 @@ It is mostly coming from my idea that I, few years ago, called "project 6", whic
   * hapi[wip]
   * koa[wip]
 * Python (flask or plain)
-* Erlang
-  * Bare[local] - throwaway, left it there for historical purposes
-  * Psycho[local] - throwaway, left it there for historical purposes
-  * Cowboy[full]
+* Erlang - Cowboy[full]
 * Elixir (Phoenix and no framework)
 * golang[wip]
-* c
-  * Kore[wip]
+* c - Kore[wip]
 
 At start notes here will be my own quick drops for myself... I hope to extend as my reasearch progresses.
 
@@ -34,11 +30,7 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 * Delivery
 * Loadtest
 
-## Erlang
-
-* [Bare - minimal Erlang web server](erlang/basic/readme.md)
-* [Psycho](erlang/psycho/readme.md)
-* [Cowboy](erlang/cowboy/readme.md)
+## Erlang(Cowboy)(erlang/readme.md)
 
 ## NodeJS
 
