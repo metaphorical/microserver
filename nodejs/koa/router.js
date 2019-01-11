@@ -7,6 +7,9 @@ router.get('/', async (ctx) => {
     message: 'hello, world!'
   };
 })
+router.get('/healthy', async (ctx) => {
+  ctx.set("X-Health", "Awsome");
+})
 router.get('/:id', async (ctx) => {
   ctx.body = {
     id: ctx.params.id
