@@ -115,7 +115,7 @@ imagePullSecrets:
       - name: awsecr-cred
 ```
 
-Refer to one of [deployment manifests](erlang/cowboy/deployment/deployment.yaml)
+Refer to one of [deployment manifests](erlang/deployment/deployment.yaml)
 
 #### Ingress
 
@@ -154,13 +154,13 @@ Valuable read: [https://docs.helm.sh/using_helm/](https://docs.helm.sh/using_hel
 
 This project provides global template to run microserver apps in kubernetes in form of a helm chart.
 
-Every app needs [values file](erlang/cowboy/deployment/values.yaml) for general app deployment properties.
+Every app needs [values file](erlang/deployment/values.yaml) for general app deployment properties.
 
 When you setup desired deployment properties for your app you can deploy it to k8s using:
 
 Create:
 ```
-helm upgrade -i --force microserver-erlang ./deployment/ --values ./erlang/cowboy/deployment/values.yaml
+helm upgrade -i --force microserver-erlang ./deployment/ --values ./erlang/deployment/values.yaml
 ```
 delete:
 ```
