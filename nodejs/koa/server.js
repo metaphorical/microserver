@@ -31,4 +31,6 @@ app.use(async ctx => {
   ctx.body = 'Hello World';
 });
 
-app.listen(port, () => console.log(`App started - listening on ${port}`));
+const server = app.listen(port, () => console.log(`App started - listening on ${port}`));
+
+module.exports = server;

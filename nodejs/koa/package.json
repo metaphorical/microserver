@@ -6,7 +6,8 @@
   "scripts": {
     "start-dev": "./node_modules/.bin/nodemon server.js",
     "start": "node server.js",
-    "test": "ava"
+    "test": "ava",
+    "test-api": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,22 @@
     "axios": "^0.18.0",
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
-    "nodemon": "^1.18.9",
-    "supertest": "^3.3.0"
+    "nodemon": "^1.18.9"
   },
   "devDependencies": {
-    "ava": "^1.1.0"
+    "ava": "^1.1.0",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
+  },
+  "ava": {
+		"files": [
+      "!test/**/*.js",
+      "lib/**/*.test.js"
+    ]
+  },
+  "jest": {
+     "testRegex": "test/*.js$",
+     "testPathIgnorePatterns": ["/node_modules/", "/lib/"],
+     "rootDir": "."
   }
 }
