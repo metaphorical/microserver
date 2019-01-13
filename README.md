@@ -32,14 +32,9 @@ At start notes here will be my own quick drops for myself... I hope to extend as
 
 ## [Erlang(Cowboy)](erlang/readme.md)
 
-## NodeJS
+## [NodeJS](nodejs/readme.md)
 
-* [hapi](nodejs/hapi/readme.md)
-* [koa](nodejs/koa/readme.md)
-
-## C
-
-* [Kore](c/kore/readme.md)
+## [C](c/readme.md)
 
 ## [Go](golang/readme.md)
 
