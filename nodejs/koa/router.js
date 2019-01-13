@@ -18,10 +18,13 @@ router.get('/bgg/hot', async (ctx) => {
   let result = {};
   try {
     result = await bgg_handler.getHot();
+    ctx.body = result.data;
   } catch(err){
     result = err
+    ctx.body = {
+      "ERROR": err
+    };
   }
-  ctx.body = result;
 
 })
 router.get('/bgg/item/:id', async (ctx) => {

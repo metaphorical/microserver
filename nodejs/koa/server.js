@@ -21,7 +21,9 @@ app.use(apiRouter.routes());
 
 // "catch all" error handler
 app.on('error', err => {
-    log.error('server error', err);
+    console.log("=====================================")
+    console.log('server error', err);
+    console.log("=====================================")
 });
 
 
