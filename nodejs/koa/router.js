@@ -9,18 +9,20 @@ router.get('/', async (ctx) => {
     message: 'hello, world!'
   };
 })
+
 router.get('/healthy', async (ctx) => {
   ctx.set("X-Health", "Awsome");
 })
+
 router.get('/bgg/hot', async (ctx) => {
-  bgg_handler.getHot(function(response, error) {
-    if (error) {
-      console.log("Error happened during BGG hot games call:", err);
-    } else {
-      console.log(response)
-      ctx.body = response;
-    }
-  })
+  let result = {};
+  try {
+    result = await bgg_handler.getHot();
+  } catch(err){
+    result = err
+  }
+  ctx.body = result;
+
 })
 router.get('/bgg/item/:id', async (ctx) => {
   ctx.body = {
