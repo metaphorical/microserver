@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "./node_modules/.bin/nodemon server.js",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,10 @@
     "axios": "^0.18.0",
     "koa": "^2.6.2",
     "koa-router": "^7.4.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "supertest": "^3.3.0"
+  },
+  "devDependencies": {
+    "ava": "^1.1.0"
   }
 }
