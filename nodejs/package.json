@@ -37,14 +37,17 @@
     "supertest": "^3.3.0"
   },
   "ava": {
-		"files": [
+    "files": [
       "!test/**/*.js",
       "lib/**/*.test.js"
     ]
   },
   "jest": {
-     "testRegex": "test/*.js$",
-     "testPathIgnorePatterns": ["/node_modules/", "/lib/"],
-     "rootDir": "."
+    "testRegex": "test/*.js$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "rootDir": "."
   }
 }
