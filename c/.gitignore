@@ -1,7 +1,6 @@
 *.o
 .flavor
 .objs
-kore.so
+c.so
 assets.h
 cert
-kore.pid
