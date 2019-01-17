@@ -1,7 +1,7 @@
 *.o
 .flavor
 .objs
-c.so
+kore-microserver.so
 assets.h
 cert
 
